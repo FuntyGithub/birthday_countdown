@@ -1,8 +1,8 @@
 <html>
 <head>
-	<title>Funty's Geburtstag</title>
+	<title>Funty's birthday</title>
 	<link rel="icon" href="https://cdn.discordapp.com/attachments/794128684596461598/869914381864022016/hug_Funty.png">
-	<meta property="og:title" content="Geburtstagscounter" />
+	<meta property="og:title" content="Birthdaycounter" />
 	<meta property="og:image" content="https://cdn.discordapp.com/emojis/862041371846377503.png" />
 	<meta name="theme-color" content="#F7C223" />
 
@@ -78,14 +78,14 @@
 </head>
 <body onload="startCounter()">
 	<div class="container">
-	  	<h1 id="headline">Funty's Geburtstag</h1>
+	  	<h1 id="headline">Funty's birthday</h1>
 
 	  	<div id="countdown">
 			<ul>
-		  		<li><span id="days"></span>Tage</li>
-		  		<li><span id="hours"></span>Stunden</li>
-		  		<li><span id="minutes"></span>Minuten</li>
-		  		<li><span id="seconds"></span>Sekunden</li>
+		  		<li><span id="days"></span>Days</li>
+		  		<li><span id="hours"></span>Hours</li>
+		  		<li><span id="minutes"></span>Minutes</li>
+		  		<li><span id="seconds"></span>Seconds</li>
 			</ul>
 
 			<select id="formchoice" onchange="updateBirth()">
@@ -165,8 +165,8 @@
 		const favicon = document.querySelector('[rel=icon]')
 		var e = document.getElementById("formchoice")
 
-		document.getElementById("headline").innerText = e.options[e.selectedIndex].innerText + "'s Geburtstag"
-		document.title = e.options[e.selectedIndex].innerText + "'s Geburtstag"
+		document.getElementById("headline").innerText = e.options[e.selectedIndex].innerText + "'s birthday"
+		document.title = e.options[e.selectedIndex].innerText + "'s birthday"
 		favicon.href = e.options[e.selectedIndex].dataset.link
 
 		clearInterval(x)
