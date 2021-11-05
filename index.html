@@ -88,23 +88,22 @@
 		  		<li><span id="minutes"></span>Minutes</li>
 		  		<li><span id="seconds"></span>Seconds</li>
 			</ul>
-
-			<select name="who" id="formchoice" onchange="updateBirth()">
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914381864022016/hug_Funty.png" value="May 17">Funty</option>
-				<option data-link="https://cdn.discordapp.com/attachments/755111451571650691/899953127569104966/hug_MGServers_Forum.png" value="Jan 03">MGServers</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914486788722728/hug_Farbe.png" value="May 15">Farbe</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914934606180443/hug_Perry.png" value="Feb 6">Perry</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914954269073458/hug_SchobiWan.png" value="Sep 26">Schobi</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914988603641876/hug_Fredi_the_best.png" value="Jul 2">Ferdi</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915011752026162/hug_MisterGamingTV.png" value="Jul 8">MisterGamingTV</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915034560634880/hug_Jan_Ninja.png" value="June 26">Jan_Ninja</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915051954405426/hug_booky10.png" value="Feb 6">Booky</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915068870041620/hug_Alcrafter.png" value="Dec 3">Alcrafter</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915091691257856/hug_lil_keko_I_Paul.png" value="Dec 7">Paul</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915111509332008/hug_Masti.png" value="Apr 26">Masti</option>
-				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915135332982854/hug_chaosbe-YT.png" value="Jul 31">Bin&auml</option>
-			</select>
 	  	</div>
+		<select name="who" id="formchoice" onchange="updateBirth()">
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914381864022016/hug_Funty.png" value="May 17">Funty</option>
+			<option data-link="https://cdn.discordapp.com/attachments/755111451571650691/899953127569104966/hug_MGServers_Forum.png" value="nov 05">MGServers</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914486788722728/hug_Farbe.png" value="May 15">Farbe</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914934606180443/hug_Perry.png" value="Feb 6">Perry</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914954269073458/hug_SchobiWan.png" value="Sep 26">Schobi</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914988603641876/hug_Fredi_the_best.png" value="Jul 2">Ferdi</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915011752026162/hug_MisterGamingTV.png" value="Jul 8">MisterGamingTV</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915034560634880/hug_Jan_Ninja.png" value="June 26">Jan_Ninja</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915051954405426/hug_booky10.png" value="Feb 6">Booky</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915068870041620/hug_Alcrafter.png" value="Dec 3">Alcrafter</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915091691257856/hug_lil_keko_I_Paul.png" value="Dec 7">Paul</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915111509332008/hug_Masti.png" value="Apr 26">Masti</option>
+			<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869915135332982854/hug_chaosbe-YT.png" value="Jul 31">Bin&auml</option>
+		</select>
 	</div>
 </body>
 </html>
@@ -118,7 +117,6 @@
 		var selectMenu = document.getElementById("formchoice")
 		if(hash && !birthdate && !user){
 			for (var i=0, n=selectMenu.options.length;i<n;i++) {
-
 				if(selectMenu.options[i].text === decodeURI(hash)) {
 					n = 0
 					birthdate = selectMenu.options[i].value
@@ -156,36 +154,31 @@
 			document.getElementById("seconds").innerText = Math.floor((distance % minute) / second);
 			nextBD.innerText = ""
 
-			if (distance < -86414216) {
-				let headline = document.getElementById("headline"),
-				nextBD = document.getElementById("nextBD");
+			document.getElementById("headline").innerText = user + "'s birthday"
+			document.title = user + "'s birthday"
+			const favicon = document.querySelector('[rel=icon]')
+			favicon.href = selectMenu.options[selectMenu.selectedIndex].dataset.link
 
-				headline.innerText = "Happy Birthday " + user + "!"
+			if (distance < -86414216) {
+				let nextBD = document.getElementById("nextBD");
+				document.getElementById("headline").innerText = "Happy Birthday " + user + "!";
 				nextBD.innerText = "Next Birthday: "+Math.floor(distance2 / day + 1)+"d, "+Math.floor((distance2 % day) / hour + 1)+"h, "+Math.floor((distance2 % hour) / minute + 1)+"m, "+Math.floor((distance2 % minute) / second)+"s."
 			}
+
 			if (distance < 0 && distance > -86414216) {
-				let headline = document.getElementById("headline"),
-				countdown = document.getElementById("countdown"),
-				content = document.getElementById("content")
-	
-				headline.innerText = "Happy Birthday " + user + "!"
-				countdown.style.display = "none"
-				content.style.display = "block"
+				let countdown = document.getElementById("countdown")
+            	countdown.style.display = "none"
+				document.getElementById("headline").innerText = "Happy Birthday " + user + "!"
 	
 				clearInterval(x)
 			}
-			updateBirth()
+			
 		}, 0)
 	}
 
 	function updateBirth() {
-
-		const favicon = document.querySelector('[rel=icon]')
 		var e = document.getElementById("formchoice")
-
-		document.getElementById("headline").innerText = e.options[e.selectedIndex].innerText + "'s birthday"
-		document.title = e.options[e.selectedIndex].innerText + "'s birthday"
-		favicon.href = e.options[e.selectedIndex].dataset.link
+		countdown.style.display = "block"
 
 		clearInterval(x)
 		startCounter(e.options[e.selectedIndex].value, e.options[e.selectedIndex].innerText)
