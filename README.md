@@ -1,4 +1,4 @@
-# birthday_countdown
+# Birthday Countdown
 
 created by [FuntyGithub]( https://github.com/FuntyGithub )  
 improved by [DEVTomatoCake]( https://github.com/DEVTomatoCake/GeburtstagsCounter )  
