@@ -1,6 +1,6 @@
 # birthday_countdown
 
-made by [FuntyGithub]( https://github.com/FuntyGithub )  
-improved by [DEVTomatoCake]( https://github.com/DEVTomatoCake )  
+created by [FuntyGithub]( https://github.com/FuntyGithub )  
+improved by [DEVTomatoCake]( https://github.com/DEVTomatoCake/GeburtstagsCounter )  
 
-will be updated in the future by [FuntyGithub]( https://github.com/FuntyGithub )  
+future updates by [FuntyGithub]( https://github.com/FuntyGithub )  
