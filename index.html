@@ -145,7 +145,8 @@
 		countDown2 = new Date(nextbirthday).getTime()
 
 		x = setInterval(function () {
-	  		let now = new Date().getTime(),
+	  		let now = new Date().getTime()
+
 			distance = countDown - now;
 			distance2 = countDown2 - now;
  
@@ -153,26 +154,27 @@
 			document.getElementById("hours").innerText = Math.floor((distance % day) / hour),
 			document.getElementById("minutes").innerText = Math.floor((distance % hour) / minute),
 			document.getElementById("seconds").innerText = Math.floor((distance % minute) / second);
+			nextBD.innerText = ""
 
-	  	if (distance < -86414216) {
-			let headline = document.getElementById("headline"),
-			nextBD = document.getElementById("nextBD");
+			if (distance < -86414216) {
+				let headline = document.getElementById("headline"),
+				nextBD = document.getElementById("nextBD");
 
-			headline.innerText = "Happy Birthday " + user + "!"
-			nextBD.innerText = "Next Birthday: "+Math.floor(distance2 / day + 1)+"d, "+Math.floor((distance2 % day) / hour + 1)+"h, "+Math.floor((distance2 % hour) / minute + 1)+"m, "+Math.floor((distance2 % minute) / second)+"s."
-	  	}
-	  	if (distance < 0 && distance > -86414216) {
-			let headline = document.getElementById("headline"),
-		  	countdown = document.getElementById("countdown"),
-		  	content = document.getElementById("content")
- 
-			headline.innerText = "Happy Birthday " + user + "!"
-			countdown.style.display = "none"
-			content.style.display = "block"
- 
-			clearInterval(x)
-	  	}
-	  	seconds
+				headline.innerText = "Happy Birthday " + user + "!"
+				nextBD.innerText = "Next Birthday: "+Math.floor(distance2 / day + 1)+"d, "+Math.floor((distance2 % day) / hour + 1)+"h, "+Math.floor((distance2 % hour) / minute + 1)+"m, "+Math.floor((distance2 % minute) / second)+"s."
+			}
+			if (distance < 0 && distance > -86414216) {
+				let headline = document.getElementById("headline"),
+				countdown = document.getElementById("countdown"),
+				content = document.getElementById("content")
+	
+				headline.innerText = "Happy Birthday " + user + "!"
+				countdown.style.display = "none"
+				content.style.display = "block"
+	
+				clearInterval(x)
+			}
+			updateBirth()
 		}, 0)
 	}
 
