@@ -88,7 +88,7 @@
 		  		<li><span id="seconds"></span>Seconds</li>
 			</ul>
 
-			<select id="formchoice" onchange="updateBirth()">
+			<select name="who" id="formchoice" onchange="updateBirth()">
 				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914381864022016/hug_Funty.png" value="May 17">Funty</option>
 				<option data-link="https://cdn.discordapp.com/attachments/755111451571650691/899953127569104966/hug_MGServers_Forum.png" value="Jan 03">MGServers</option>
 				<option data-link="https://cdn.discordapp.com/attachments/794128684596461598/869914486788722728/hug_Farbe.png" value="May 15">Farbe</option>
@@ -108,10 +108,30 @@
 </body>
 </html>
 <script>
-	var x
+	var x	
+
 	function startCounter(birthdate, user) {
-		if (!birthdate) birthdate = "May 17"
-		if (!user) user = "Funty"
+	
+		var hash = location.hash.substr(1);
+		//console.log(decodeURI(hash))
+		var selectMenu = document.getElementById("formchoice")
+		if(hash && !birthdate && !user){
+			for (var i=0, n=selectMenu.options.length;i<n;i++) {
+
+				if(selectMenu.options[i].text === decodeURI(hash)) {
+					n = 0
+					birthdate = selectMenu.options[i].value
+					user = selectMenu.options[i].text
+					selectMenu.selectedIndex = i
+				}
+			}
+		}else{
+			if (!birthdate) birthdate = "May 17"
+			if (!user) user = "Funty"
+		}
+
+		if(user) location.hash = user
+
   		const second = 1000,
 		minute = second * 60,
 		hour = minute * 60,
@@ -163,6 +183,7 @@
 	}
 
 	function updateBirth() {
+
 		const favicon = document.querySelector('[rel=icon]')
 		var e = document.getElementById("formchoice")
 
