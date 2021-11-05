@@ -79,6 +79,7 @@
 <body onload="startCounter()">
 	<div class="container">
 	  	<h1 id="headline">Funty's birthday</h1>
+		<h1 id="nextBD" style="font-size: 2rem; text-transform:none"></h1>
 
 	  	<div id="countdown">
 			<ul>
@@ -138,34 +139,27 @@
 		day = hour * 24
  
   		let birthday = birthdate + ", " + new Date().getFullYear() + " 00:00:00",
-		countDown = new Date(birthday).getTime()
+		countDown = new Date(birthday).getTime(),
+		nextYear = new Date().getFullYear() + 1,
+		nextbirthday = birthdate + ", " + nextYear + " 00:00:00",
+		countDown2 = new Date(nextbirthday).getTime()
+
 		x = setInterval(function () {
 	  		let now = new Date().getTime(),
 			distance = countDown - now;
+			distance2 = countDown2 - now;
  
-		  (document.getElementById("days").innerText = Math.floor(distance / day)),
-			(document.getElementById("hours").innerText = Math.floor(
-			  (distance % day) / hour
-			)),
-			(document.getElementById("minutes").innerText = Math.floor(
-			  (distance % hour) / minute
-			)),
-			(document.getElementById("seconds").innerText = Math.floor(
-			  (distance % minute) / second
-			));
+		  	document.getElementById("days").innerText = Math.floor(distance / day),
+			document.getElementById("hours").innerText = Math.floor((distance % day) / hour),
+			document.getElementById("minutes").innerText = Math.floor((distance % hour) / minute),
+			document.getElementById("seconds").innerText = Math.floor((distance % minute) / second);
 
 	  	if (distance < -86414216) {
 			let headline = document.getElementById("headline"),
-		  	countdown = document.getElementById("countdown"),
-		  	content = document.getElementById("content");
-		  (document.getElementById("days").innerText = Math.floor(distance / day + 1)),
-			(document.getElementById("hours").innerText = Math.floor(
-			  (distance % day) / hour + 1
-			)),
-			(document.getElementById("minutes").innerText = Math.floor(
-			  (distance % hour) / minute + 1
-			)),
+			nextBD = document.getElementById("nextBD");
+
 			headline.innerText = "Happy Birthday " + user + "!"
+			nextBD.innerText = "Next Birthday: "+Math.floor(distance2 / day + 1)+"d, "+Math.floor((distance2 % day) / hour + 1)+"h, "+Math.floor((distance2 % hour) / minute + 1)+"m, "+Math.floor((distance2 % minute) / second)+"s."
 	  	}
 	  	if (distance < 0 && distance > -86414216) {
 			let headline = document.getElementById("headline"),
